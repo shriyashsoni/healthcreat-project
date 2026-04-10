@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HealthRouter Chat - Professional Healthcare AI Assistant
 
-## Getting Started
+A production-ready healthcare chat application that helps patients find the right medical specialist using AI-powered triage and routing.
 
-First, run the development server:
+**Status**: ✅ Fully Functional | 🚀 Production Ready
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Quick Start (5 Minutes)
+
+### 1. Set Environment Variables
+Create `.env.local`:
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_key
+OPENAI_API_KEY=your_openai_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Create Database Tables
+Run `scripts/001_create_schema.sql` in your Supabase SQL Editor
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Start App
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Visit `http://localhost:3000` and test!
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Documentation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **[QUICK_START.md](QUICK_START.md)** - Complete setup guide
+- **[DATABASE_SETUP.md](DATABASE_SETUP.md)** - Database configuration
+- **[TESTING_GUIDE.md](TESTING_GUIDE.md)** - Test all features
+- **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Technical details
+- **[UPGRADE_SUMMARY.md](UPGRADE_SUMMARY.md)** - What's new
+- **[CHANGELOG.md](CHANGELOG.md)** - All changes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+✨ **User Authentication** - Supabase OAuth2 login
+💬 **AI Chat** - OpenAI-powered specialist recommendations
+📊 **Chat History** - All conversations saved automatically
+⭐ **Favorites** - Star important conversations
+👤 **User Profiles** - Edit name and avatar
+📱 **Responsive Design** - Works on all devices
+🔒 **Secure** - Row Level Security, protected routes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Technology Stack
+
+- **Frontend**: Next.js 16 + React 19 + TypeScript
+- **Database**: Supabase PostgreSQL with RLS
+- **AI**: OpenAI API (gpt-4o-mini)
+- **Auth**: Supabase Auth (OAuth2)
+- **Styling**: Tailwind CSS v4
+- **Icons**: Lucide React
+
+---
+
+## Commands
+
+```bash
+npm run dev       # Start development
+npm run build     # Build for production
+npm start         # Start production server
+npm run lint      # Run linting
+```
+
+---
+
+## Getting Help
+
+1. **Setup Issues**: See [QUICK_START.md](QUICK_START.md)
+2. **Testing Issues**: See [TESTING_GUIDE.md](TESTING_GUIDE.md)
+3. **Database Issues**: See [DATABASE_SETUP.md](DATABASE_SETUP.md)
+4. **Code Questions**: See [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)
+5. **What Changed**: See [CHANGELOG.md](CHANGELOG.md)
+
+---
+
+## Deployment
+
+Deploy to Vercel:
+1. Push to GitHub
+2. Import repo in Vercel
+3. Add environment variables
+4. Deploy!
+
+See [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying) for details.
+
+---
+
+**Ready to get started?** 👉 [Read QUICK_START.md](QUICK_START.md)
+
+Made with ❤️ using Next.js, Supabase, and OpenAI

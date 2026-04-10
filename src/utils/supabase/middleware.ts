@@ -31,10 +31,13 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // Always protect the /chat and /settings routes
+  // Always protect the /chat, /profile, /settings, and /api routes
   if (
     !user && 
-    (request.nextUrl.pathname.startsWith('/chat') || request.nextUrl.pathname.startsWith('/settings'))
+    (request.nextUrl.pathname.startsWith('/chat') || 
+     request.nextUrl.pathname.startsWith('/profile') ||
+     request.nextUrl.pathname.startsWith('/settings') ||
+     request.nextUrl.pathname.startsWith('/api'))
   ) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
