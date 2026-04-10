@@ -6,10 +6,13 @@ import { useState } from "react";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
-  const supabase = createClient();
+  const isSupabaseConfigured = Boolean(
+    process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  );
 
   const handleGoogleLogin = async () => {
     setLoading(true);
+    const supabase = createClient();
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
@@ -33,7 +36,7 @@ export default function LoginPage() {
         </p>
 
         <button
-          disabled={loading}
+          disabled={loading || !isSupabaseConfigured}
           onClick={handleGoogleLogin}
           className="w-full flex justify-center items-center gap-3 bg-white border border-border-light text-text-primary px-6 py-4 rounded-[12px] font-bold shadow-sm hover:bg-gray-50 transition"
         >
@@ -52,6 +55,11 @@ export default function LoginPage() {
             </>
           )}
         </button>
+        {!isSupabaseConfigured && (
+          <p className="text-sm text-red-600 mt-4">
+            Supabase login is not configured. Set the public Supabase URL and anon key in your environment variables.
+          </p>
+        )}
         <p className="text-[11px] uppercase tracking-widest text-text-secondary mt-8 font-medium">
           Secure Auth via Supabase
         </p>
