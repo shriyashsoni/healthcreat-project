@@ -63,7 +63,7 @@ Keep your response extremely concise (under 40 words). Be polite. Do not diagnos
       system: systemPrompt,
       messages,
       temperature: isRoutingPhase ? 0.2 : 0.5,
-      maxTokens: isRoutingPhase ? 1024 : 256,
+      maxOutputTokens: isRoutingPhase ? 1024 : 256,
     });
 
     // Save message to database if conversation exists
